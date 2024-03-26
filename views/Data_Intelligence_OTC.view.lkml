@@ -28,6 +28,10 @@ view: data_intelligence_otc {
       label: "JPY"
       value: "JPY"
     }
+    allowed_value: {
+      label: "BRL"
+      value: "BRL"
+    }
   }
 
   dimension: delivered_qty {
@@ -468,37 +472,37 @@ view: data_intelligence_otc {
     type: yesno
     sql:${actual_delivery_date} is not null  ;;
   }
-  
+
   measure: count_of_deliveries {
     type: count_distinct
     sql: ${delivery_number} ;;
     filters: [Delivery: "Yes"]
   }
-  
+
   measure: count_on_time_delivery {
     type: count_distinct
     sql: ${delivery_number} ;;
     filters: [OnTime: "Yes",Delivery: "Yes"]
   }
-  
+
   measure: count_in_full_delivery {
     type: count_distinct
     sql: ${delivery_number} ;;
     filters: [InFull: "Yes", Delivery: "Yes"]
   }
-  
+
   measure: count_otif {
     type: count_distinct
     sql: ${delivery_number} ;;
     filters: [OnTime_InFull: "Yes", Delivery: "Yes"]
   }
-  
+
   measure: count_latedeliveries {
     type: count_distinct
     sql: ${delivery_number} ;;
     filters: [Late_Delivery: "Yes", Delivery: "Yes"]
   }
-  
+
   measure: OnTimePercentage {
     type: number
     value_format: "0%"
@@ -524,7 +528,7 @@ view: data_intelligence_otc {
     value_format: "0%"
     sql: if(${count_of_deliveries}=0,0,round(${count_latedeliveries}/${count_of_deliveries},2))  ;;
   }
-  
+
   dimension: OnTime_InFull {
     type: yesno
     sql: ${otif}="OTIF" ;;
