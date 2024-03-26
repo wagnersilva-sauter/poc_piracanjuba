@@ -4,7 +4,7 @@ constant: CONNECTION_NAME {
 }
 
 constant: GCP_PROJECT {
-  value: "GCP Project Name"
+  value: "sauter-poc-piracanjuba"
   export: override_required
 }
 
