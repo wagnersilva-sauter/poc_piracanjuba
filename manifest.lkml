@@ -1,5 +1,5 @@
 constant: CONNECTION_NAME {
-  value: "cortex"
+  value: "poc_piracanjuba"
   export: override_required
 }
 
@@ -9,11 +9,11 @@ constant: GCP_PROJECT {
 }
 
 constant: REPORTING_DATASET {
-  value: "Reporting Dataset Name"
+  value: "REPORTING"
   export: override_required
 }
 
 constant: CLIENT {
-  value: "Client ID"
+  value: "200"
   export: override_required
 }
